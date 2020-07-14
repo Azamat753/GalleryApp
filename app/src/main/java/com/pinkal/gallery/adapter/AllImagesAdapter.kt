@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.pinkal.gallery.R
-import com.pinkal.gallery.activity.FullScreenImageActivity
 import com.pinkal.gallery.model.Images
 import com.pinkal.gallery.utils.CURRENT_IMAGE
 import com.pinkal.gallery.utils.IMAGE
@@ -58,12 +57,12 @@ class AllImagesAdapter(val mContext: Context, val imagesList: ArrayList<Images>)
         Log.e("Adapter >> ", "" + imagesList[position].filePath)
 
         holder.imgImages.setOnClickListener({
-            val intent = Intent(mContext, FullScreenImageActivity::class.java)
+//            val intent = Intent(mContext, FullScreenImageActivity::class.java)
             val list: ArrayList<Images> = imagesList
-
-            intent.putExtra(IMAGES_LIST, list)
-            intent.putExtra(CURRENT_IMAGE, position)
-            mContext.startActivity(intent)
+//open full image
+//            intent.putExtra(IMAGES_LIST, list)
+//            intent.putExtra(CURRENT_IMAGE, position)
+//            mContext.startActivity(intent)
         })
 
     }
