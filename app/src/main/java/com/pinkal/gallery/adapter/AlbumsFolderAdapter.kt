@@ -71,7 +71,7 @@ class AlbumsFolderAdapter(val mContext: Context, val albumsFolderList: ArrayList
             holder.txtAlbumsTotal.text = subText
         }
 
-        holder.relativeLayoutAlbums.setOnClickListener({
+        holder.relativeLayoutAlbums.setOnClickListener {
             if (isFolderSelected) {
                 if (!albumsFolder.isSelected) {
                     albumsFolder.isSelected = true
@@ -85,7 +85,7 @@ class AlbumsFolderAdapter(val mContext: Context, val albumsFolderList: ArrayList
                         FOLDER_PATH to albumsFolder.folderPath,
                         FOLDER_IMAGE_OR_VIDEO to albumsFolder.fileType)
             }
-        })
+        }
 
 
         holder.relativeLayoutAlbums.setOnLongClickListener(View.OnLongClickListener {
@@ -132,96 +132,5 @@ class AlbumsFolderAdapter(val mContext: Context, val albumsFolderList: ArrayList
 
     }
 
-//    private fun getImagePath(folderName: String, imageORVideo: String, folderPath: String): String {
-//
-//        var path: String? = null
-//
-//        if (imageORVideo == IMAGE) {
-//
-//            val OrderBy = MediaStore.Images.Media.DATE_TAKEN + " DESC"
-//            val cursor = mContext.contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-//                    null,
-//                    MediaStore.Images.Media.BUCKET_ID + " like ? AND " + MediaStore.Images.Media.BUCKET_DISPLAY_NAME + " like ?",
-//                    arrayOf("%$folderPath%", "%$folderName%"),
-//                    OrderBy)
-//
-//
-//            if (cursor.moveToFirst()) {
-//                val dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-//                path = cursor.getString(dataColumn)
-//                cursor.close()
-//                return path
-//            }
-//
-//        } else {
-//
-//            val OrderBy = MediaStore.Video.Media.DATE_TAKEN + " DESC"
-//            val cursor = mContext.contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
-//                    null,
-//                    MediaStore.Images.Media.BUCKET_ID + " like ? AND " + MediaStore.Images.Media.BUCKET_DISPLAY_NAME + " like ?",
-//                    arrayOf("%$folderPath%", "%$folderName%"),
-//                    OrderBy)
-//
-//
-//            if (cursor.moveToFirst()) {
-//                val dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)
-//                path = cursor.getString(dataColumn)
-//                cursor.close()
-//                return path
-//            }
-//        }
-//
-//        return ""
-//    }
-//
-//    private fun getAlbumsSubText(folderName: String, imageORVideo: String, folderPath: String): String {
-//
-//        if (imageORVideo == IMAGE) {
-//
-//            var totalImage: Int = 0
-//
-//            val OrderBy = MediaStore.Images.Media.DATE_TAKEN + " DESC"
-//            val cursor = mContext.contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-//                    null,
-//                    MediaStore.Images.Media.BUCKET_ID + " like ? AND " + MediaStore.Images.Media.BUCKET_DISPLAY_NAME + " like ?",
-//                    arrayOf("%$folderPath%", "%$folderName%"),
-//                    OrderBy)
-//
-//
-//            if (cursor.moveToFirst()) {
-//                do {
-//                    totalImage += 1
-//                } while (cursor.moveToNext())
-//            }
-//
-//            if (totalImage != 0) {
-//                return "Photos " + totalImage
-//            }
-//
-//        } else {
-//
-//            var totalVideo: Int = 0
-//
-//            val OrderBy = MediaStore.Video.Media.DATE_TAKEN + " DESC"
-//            val cursor = mContext.contentResolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
-//                    null,
-//                    MediaStore.Images.Media.BUCKET_ID + " like ? AND " + MediaStore.Images.Media.BUCKET_DISPLAY_NAME + " like ?",
-//                    arrayOf("%$folderPath%", "%$folderName%"),
-//                    OrderBy)
-//
-//
-//            if (cursor.moveToFirst()) {
-//                do {
-//                    totalVideo += 1
-//                } while (cursor.moveToNext())
-//            }
-//
-//            if (totalVideo != 0) {
-//                return "Videos " + totalVideo
-//            }
-//        }
-//
-//        return ""
-//    }
 
 }

@@ -9,8 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.pinkal.gallery.R
+import com.pinkal.gallery.activity.SelectedActivity
 import com.pinkal.gallery.model.Images
 import com.pinkal.gallery.utils.CURRENT_IMAGE
 import com.pinkal.gallery.utils.IMAGE
@@ -56,14 +58,15 @@ class AllImagesAdapter(val mContext: Context, val imagesList: ArrayList<Images>)
 
         Log.e("Adapter >> ", "" + imagesList[position].filePath)
 
-        holder.imgImages.setOnClickListener({
-//            val intent = Intent(mContext, FullScreenImageActivity::class.java)
+        holder.imgImages.setOnClickListener {
+            val intent = Intent(mContext, SelectedActivity::class.java)
             val list: ArrayList<Images> = imagesList
 //open full image
-//            intent.putExtra(IMAGES_LIST, list)
-//            intent.putExtra(CURRENT_IMAGE, position)
-//            mContext.startActivity(intent)
-        })
+            intent.putExtra("selected", "file://" + imagesList[position].filePath)
+            intent.putExtra(CURRENT_IMAGE, position)
+            mContext.startActivity(intent)
+            Toast.makeText(mContext,"ok",Toast.LENGTH_SHORT).show()
+        }
 
     }
 
